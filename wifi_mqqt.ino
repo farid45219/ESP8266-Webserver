@@ -103,7 +103,8 @@ void WIFI_Connect_To_Target(void){
     if(WIFI->Target.AltSSID){
       WiFi.begin(WIFI->Target.SSID.c_str(), TARGET_FILTER_ALT_PASS);
     }else{
-      WiFi.begin(WIFI->Target.SSID.c_str(), TARGET_FILTER_PASS);
+      //WiFi.begin(WIFI->Target.SSID.c_str(), TARGET_FILTER_PASS);
+      WiFi.begin("RPM IoT Lab-99", TARGET_FILTER_PASS);
     }
     #ifdef DEBUG_ENABLE
     Serial.print("[");
