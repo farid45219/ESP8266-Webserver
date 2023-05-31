@@ -7,7 +7,7 @@ void Data_Handler_Init(void){
 
 void Data_Handler_Add_Field_Text(char *text){
   uint16_t i=0;
-  while(text[DataHandler.DataIndex]!='\0'){
+  while(text[i]!='\0'){
     mqqt_msg[DataHandler.DataIndex]=text[i];
     DataHandler.DataIndex++;
     i++;

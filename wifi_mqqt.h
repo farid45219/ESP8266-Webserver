@@ -6,7 +6,7 @@
 #define  TARGET_FILTER_SSID      "RPM IoT Lab"
 #define  TARGET_FILTER_SSID_ALT  "Iot"
 #define  TARGET_FILTER_PASS      "password@iiT"
-#define  TARGET_FILTER_ALT_PASS  "walt0n@2023"
+#define  TARGET_FILTER_ALT_PASS  "Password@#2023"
 #define  TARGET_CONNECT_TIMEOUT  30U
 #define  MQQT_MSG_MAX_LENGTH     1500UL
 #define  DEBUG_ENABLE            1U

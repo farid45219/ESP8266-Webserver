@@ -41,15 +41,18 @@ void loop() {
     }
   }
 
-  
-    // int32_t data[2];
-    // HDC1080_Read_Temperature_Humidity(&data[0], &data[1]);
-    // Data_Handler_Add_Field_Text("HDC1080_Temp ");
-    // Data_Handler_Add_Field_Value(data[0]);
-    // Data_Handler_Add_Field_Text("\r\n");
-    // Data_Handler_Add_Field_Text("HDC1080_Humidity ");
-    // Data_Handler_Add_Field_Value(data[1]);
-    // Data_Handler_Add_Field_Text("\r\n");
+  if((mqqt_msg[DataHandler.DataIndex-2]=='\r') && (mqqt_msg[DataHandler.DataIndex-1]=='\n')){
+    DataHandler.DataIndex-=2;
+  }
+
+    int32_t data[2];
+    HDC1080_Read_Temperature_Humidity(&data[0], &data[1]);
+    Data_Handler_Add_Field_Text("HDC1080_Temp ");
+    Data_Handler_Add_Field_Value(data[0]);
+    Data_Handler_Add_Field_Text("\r\n");
+    Data_Handler_Add_Field_Text("HDC1080_Humidity ");
+    Data_Handler_Add_Field_Value(data[1]);
+    Data_Handler_Add_Field_Text("\r\n\r\n");
 
     digitalWrite(LED_BUILTIN, LOW);
     WIFI_Connect();
@@ -66,6 +69,6 @@ void loop() {
     digitalWrite(LED_BUILTIN, HIGH);
     MQQT_Empty_Bin();
     Data_Handler_Init();
-    
+    LastMillis=millis();
 
 }
